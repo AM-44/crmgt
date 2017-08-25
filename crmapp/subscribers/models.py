@@ -9,8 +9,8 @@ class Subscriber(models.Model):
     state = models.CharField(max_length=2)
     stripe_id = models.CharField(max_length=30, blank=True)
 
-class Meta:
+    class Meta:
         verbose_name_plural = 'subscribers'
 
-def __unicode__(self):
-        return u"%s's Subscription Info" % self.user_rec    
+    def __unicode__(self):
+        return u"%s's Subscription Info" % self.user_rec
