@@ -14,6 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
+from django.contrib import admin
+
+admin.autodiscover()
 
 from marketing.views import HomePage
 from subscribers.views import subscriber_new
@@ -28,7 +31,7 @@ urlpatterns =(
         subscriber_new, name='sub_new'),
 
     # Admin URL
-
+    url(r'^admin/', include(admin.site.urls)),
 
     # Login/Logout URLs
 
