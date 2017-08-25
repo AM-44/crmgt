@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     {% load staticfiles %}
-    <title>New Age - Start Bootstrap Theme</title>
+    <title>{% block title %}New Age - Start Bootstrap Theme {% endblock title %}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -43,6 +43,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+            {% if user.is_authenticated %}
+                            <li><a href="">Logout</a></li>
+                            <li><a href=""
+                                   class="p-r-none">Accounts</a></li>
+                        {% else %}
+                            <li><a href="">Login</a></li>
+                            <li><a href="{% url 'sub_new' %}" class="p-r-none">Sign Up</a></li>
+                        {% endif %}
               <a class="nav-link js-scroll-trigger" href="#download">Download</a>
             </li>
             <li class="nav-item">
