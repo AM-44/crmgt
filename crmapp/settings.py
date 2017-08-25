@@ -37,9 +37,11 @@ SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 CRMGT_DB_PASS = False
 if ENV_ROLE == 'development':
     DEBUG = True
+    TEMPLATE_DEBUG = DEBUG
     CRMGT_DB_PASS = get_env_variable('CRMGT_DB_PASS')
 
 ALLOWED_HOSTS = ['*']

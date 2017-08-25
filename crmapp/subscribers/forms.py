@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Subscriber  
+from .models import Subscriber
 
 
 class AddressMixin(forms.ModelForm):
