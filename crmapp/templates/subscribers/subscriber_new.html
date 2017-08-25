@@ -4,16 +4,12 @@
 {% load staticfiles %}
 
 {% block content %}
-
-	
-    <header class="masthead">
-      <div class="container h-100">
-        <div class="row h-100">
-          <div class="col-lg-7 my-auto">
-            <div class="header-content mx-auto">
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-heading text-center">
             <form id="user-reg-form" action="." method="post">
-            	{% csrf_token %}
-    			{# Username & Password Section #}
+                {% csrf_token %}
+                {# Username & Password Section #}
                 <h3>Signup for a $15 Monthly Subscription</h3>
                 <h5 class="sn-sh">CREATE A USERNAME AND PASSWORD</h5>
                 <table class="table">
@@ -44,37 +40,7 @@
                         </tr>
                     </tbody>
                 </table>
-
                 {# Billing Address Section #}
-
-
-                <input class="btn btn-primary" type="submit" value="submit">
-            </form>
-            </div>
-          </div>
-          <div class="col-lg-5 my-auto">
-            <div class="device-container">
-              <div class="device-mockup iphone6_plus portrait white">
-                <div class="device">
-                  <div class="screen">
-                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                    <img src="{% static 'img/demo-screen-1.jpg' %}" class="img-fluid" alt="">
-                  </div>
-                  <div class="button">
-                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-            {# Credit Card Section #}
-            <section class="download bg-primary text-center" id="download">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 mx-auto">
                 <h5 class="sn-sh">YOUR BILLING ADDRESS</h5>
                     <table class="table">
                         <tbody>
@@ -116,10 +82,21 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-        </div>
+                <input class="btn btn-primary" type="submit" value="submit">
+            </form>
+            </div>
+          </div>
+          </div>
       </div>
     </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+            {# Credit Card Section #}
         </div>
     </div>
 {% endblock content %}
