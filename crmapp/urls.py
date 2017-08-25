@@ -25,7 +25,7 @@ urlpatterns =(
 
     # Subscriber related URLs
     url(r'^signup/$',
-        'crmapp.subscribers.views.subscriber_new', name='sub_new'),
+        subscriber_new, name='sub_new'),
 
     # Admin URL
 
