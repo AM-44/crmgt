@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 
 class Subscriber(models.Model):
     user_rec = models.ForeignKey(User)
-    username = models.CharField(max_length=100)
     address_one = models.CharField(max_length=100)
     address_two = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=50)
