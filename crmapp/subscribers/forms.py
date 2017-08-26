@@ -34,3 +34,9 @@ class SubscriberForm(AddressMixin, UserCreationForm):
     password2 = forms.CharField(
         widget=forms.TextInput(attrs={'class':'form-control', 'type':'password'})
     )
+
+    def __init__(self, *args, **kwargs):
+        if hasattr(self, 'fields') and self._meta.model.USERNAME_FIELD in self.fields:
+            self.fields[self._meta.model.USERNAME_FIELD].widget.attrs.update({'autofocus': ''})
+
+        super(UserCreationForm, self).__init__(*args, **kwargs)

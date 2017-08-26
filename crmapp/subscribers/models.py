@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Subscriber:
+    USERNAME_FIELD = ("User"),
+
 class Subscriber(models.Model):
     user_rec = models.ForeignKey(User)
     address_one = models.CharField(max_length=100)

@@ -19,7 +19,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from marketing.views import HomePage
-from subscribers.views import subscriber_new
+from subscribers.views import Subscribers
 
 urlpatterns =(
 
@@ -28,7 +28,7 @@ urlpatterns =(
 
     # Subscriber related URLs
     url(r'^signup/$',
-        subscriber_new, name='sub_new'),
+        Subscribers, name='sub_new'),
 
     # Admin URL
     url(r'^admin/', include(admin.site.urls)),

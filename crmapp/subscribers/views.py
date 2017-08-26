@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from .forms import SubscriberForm
 from .models import Subscriber
 
-def subscriber_new(request, template='subscribers/subscriber_new.html'):
+def Subscribers(request, template='subscribers/subscriber_new.html'):
     if request.method == 'POST':
         form = SubscriberForm(request.POST)
         if form.is_valid():
@@ -25,7 +25,7 @@ def subscriber_new(request, template='subscribers/subscriber_new.html'):
             address_two = form.cleaned_data['address_two']
             city = form.cleaned_data['city']
             state = form.cleaned_data['state']
-            sub = Subscriber(address_one=address_one, address_two=address_two,
+            sub = Subscribers(address_one=address_one, address_two=address_two,
                              city=city, state=state, user_rec=user)
             sub.save()
             # Process payment (via Stripe)
