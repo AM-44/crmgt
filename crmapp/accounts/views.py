@@ -4,9 +4,12 @@ from django.utils.decorators import method_decorator
 
 from .models import Account
 
+from django.core.paginator import Paginator
+
 class AccountList(ListView):
     model = Account
-    paginate_by = 12
+    account_list = Account.objects.filter()
+    paginator = Paginator(account_list, 12) 
     template_name = 'accounts/account_list.html'
     context_object_name = 'accounts'
 
