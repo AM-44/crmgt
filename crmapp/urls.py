@@ -24,6 +24,7 @@ admin.autodiscover()
 from marketing.views import HomePage
 from subscribers.views import Subscribers
 from .settings import LOGIN_REDIRECT_URL
+from accounts.views import account_cru
 
 urlpatterns =[
 
@@ -47,7 +48,7 @@ urlpatterns =[
     
     # Account related URLs
     url(r'^account/new/$',
-        'crmapp.accounts.views.account_cru', name='account_new'
+        account_cru, name='account_new'
     ),
     url(r'^account/list/$',
         AccountList.as_view(), name='account_list'
