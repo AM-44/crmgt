@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from accounts.views import AccountList
 from django.contrib.auth.views import login, logout
 from django.conf.urls import include, url
 from django.contrib import admin
@@ -44,7 +45,9 @@ urlpatterns =[
     ),
     
     # Account related URLs
-
+    url(r'^account/list/$',
+        AccountList.as_view(), name='account_list'
+    ),
 
     # Contact related URLS
 
