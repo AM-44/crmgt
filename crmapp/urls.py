@@ -48,7 +48,7 @@ urlpatterns =[
     
     # Account related URLs
     url(r'^account/new/$',
-        account_cru, name='account_new'
+        account_cru, name='crmapp.accounts.views.account_cru'
     ),
     url(r'^account/list/$',
         AccountList.as_view(), name='account_list'
