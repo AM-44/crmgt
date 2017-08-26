@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.contrib.auth.views import login, logout
 from django.conf.urls import include, url
 from django.contrib import admin
 
@@ -20,8 +21,9 @@ admin.autodiscover()
 
 from marketing.views import HomePage
 from subscribers.views import Subscribers
+from .settings import LOGIN_REDIRECT_URL
 
-urlpatterns =(
+urlpatterns =[
 
     # Marketing pages
     url(r'^$', HomePage.as_view(), name="home"),
@@ -35,10 +37,10 @@ urlpatterns =(
 
     # Login/Logout URLs
     url(r'^login/$',
-    'django.contrib.auth.views.login', {'template_name': 'login.html'}
-    ),
+        login,{'template_name': 'login.html'}, name='django.contrib.auth.views.login'),
+    
     url(r'^logout/$',
-        'django.contrib.auth.views.logout', {'next_page': '/login/'}
+        logout, {'next_page': '/login/'}
     ),
     
     # Account related URLs
@@ -49,4 +51,4 @@ urlpatterns =(
 
     # Communication related URLs
 
-)
+]
