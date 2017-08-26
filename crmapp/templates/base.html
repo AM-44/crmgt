@@ -70,7 +70,7 @@
             {% if user.is_authenticated %}
             				<li class="nav-item">
                             <li><a class="nav-link js-scroll-trigger" href="/logout/">Logout</a></li>
-                            <li><a class="nav-link js-scroll-trigger" href="" class="p-r-none">Accounts</a></li>
+                            <li><a class="nav-link js-scroll-trigger" href="{% url 'account_list' %}" class="p-r-none">Accounts</a></li>
                         {% else %}
                         	<li class="nav-item">
                             <li><a class="nav-link js-scroll-trigger" href="/login/">Login</a></li>
