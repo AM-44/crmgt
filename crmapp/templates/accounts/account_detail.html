@@ -11,7 +11,7 @@
 		            </div>
 		        </div>
 		        {# List Contacts #}
-				        <h4 class="ad-mh m-none">Contact Details</h4>	 
+				        <h4 class="ad-mh m-none">Contact</h4>	 
 				        <table id="cd-table" class="table table-hover">
 				            <tbody>
 				                {% for contact in contacts %}
@@ -22,8 +22,8 @@
 				        {# New Contact Link #}
 				        <a id="new-contact"
 						   class="btn btn-link"
-						   href="{% url 'contact_new' %}?account={{ account.id }}">
-						   New Contact</a>New Contact</a>
+						   href="{% url 'crmapp.contacts.views.contact_cru' %}?account={{ account.id }}">
+						   New Contact</a>
 				    </div>
 				</div>
 		        {# List Communications #}
