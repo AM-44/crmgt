@@ -26,6 +26,7 @@ from marketing.views import HomePage
 from subscribers.views import Subscribers
 from .settings import LOGIN_REDIRECT_URL
 from accounts.views import account_cru
+from contacts.views import contact_cru
 
 urlpatterns =[
 
@@ -62,7 +63,7 @@ urlpatterns =[
     url(r'^contact/(?P<uuid>[\w-]+)/', include(contact_urls)),
     
     url(r'^contact/new/$',
-        'crmapp.contacts.views.contact_cru', name='contact_new'
+        contact_cru, name='contact_new'
     )
     # Communication related URLs
 
