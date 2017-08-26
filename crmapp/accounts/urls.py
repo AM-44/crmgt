@@ -7,6 +7,9 @@ account_urls =[
     url(r'^$',
         account_detail, name='account_detail'
     ),
+    url(r'^$',
+        account_detail, name='crmapp.accounts.views.account_detail'
+    ),
     url(r'^edit/$',
         account_cru, name='account_update'
     ),

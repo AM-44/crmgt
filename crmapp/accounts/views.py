@@ -12,7 +12,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from .forms import AccountForm
-.
+
 from django.shortcuts import get_object_or_404
 
 class AccountList(ListView):
