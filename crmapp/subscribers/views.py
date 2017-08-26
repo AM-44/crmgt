@@ -25,7 +25,7 @@ def Subscribers(request, template='subscribers/subscriber_new.html'):
             address_two = form.cleaned_data['address_two']
             city = form.cleaned_data['city']
             state = form.cleaned_data['state']
-            sub = Subscribers(address_one=address_one, address_two=address_two,
+            sub = Subscriber(address_one=address_one, address_two=address_two,
                              city=city, state=state, user_rec=user)
             sub.save()
             # Process payment (via Stripe)
