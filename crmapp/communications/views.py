@@ -13,6 +13,7 @@ from crmapp.accounts.models import Account
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import DeleteView
 from django.http import Http404
+from crmapp.accounts.views import account_detail
 
 @login_required()
 def comm_detail(request, uuid):
@@ -52,7 +53,7 @@ def comm_cru(request, uuid=None, account=None):
                 )
             else:
                 reverse_url = reverse(
-                    'crmapp.contacts.views.account_detail',
+                    account_detail,
                     args=(account.uuid,))
                 return HttpResponseRedirect(reverse_url)
         else:
