@@ -1,9 +1,10 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
+from views import comm_detail
 
-comm_urls = patterns('',
+comm_urls = [
 
     url(r'^$',
-        'crmapp.communications.views.comm_detail', name="comm_detail"
+        comm_detail, name="comm_detail"
     ),
 
-)
+]
