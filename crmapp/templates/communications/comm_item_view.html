@@ -3,10 +3,10 @@
         <span>
             {# Comm Delete URL #}
             <a class="cancel comm-control" 
-               href="Del"></a>
+               href="">Del</a>
             {# Comm Edit URL #}
             <a class="pen comm-control comm-edit" 
-               href="Edit"></a>
+               href="{{ comm.get_update_url }}?account={{ account.id }}">Edit</a>
         </span>
     </h5>
     <p class="co-item-date">on {{ comm.date }}</p>   

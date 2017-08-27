@@ -3,9 +3,10 @@
   <div class="container">
         <div class="section-heading text-center">
           <form id="comm-form"
-                {# POST Destination #}
-                action=""
-                method="post">
+              {# POST Destination #}
+              action="{% if comm.uuid %}
+              {% url 'comm_update' comm.uuid %}{% else %}{% url 'comm_new'%}{% endif %}"
+              method="post">
               {% csrf_token %}
               <p>{{ form.subject }}</p>
               <div id="comm-form-internals">
