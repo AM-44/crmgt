@@ -30,6 +30,7 @@ from contacts.views import contact_cru
 from contacts.views import ContactDelete
 from communications.urls import comm_urls
 from communications.views import comm_cru
+from communications.views import CommDelete
 
 urlpatterns =[
 
@@ -76,4 +77,7 @@ urlpatterns =[
         comm_cru, name='comm_new'
     ),
     url(r'^comm/(?P<uuid>[\w-]+)/', include(comm_urls)),
+    url(r'^comm/(?P<pk>[\w-]+)/delete/$',
+        CommDelete.as_view(), name='comm_delete'
+    ),
 ]
