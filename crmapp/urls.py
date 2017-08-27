@@ -29,6 +29,7 @@ from accounts.views import account_cru
 from contacts.views import contact_cru
 from contacts.views import ContactDelete
 from communications.urls import comm_urls
+from communications.viewws import comm_cru
 
 urlpatterns =[
 
@@ -72,7 +73,7 @@ urlpatterns =[
     ),
     # Communication related URLs
     url(r'^comm/new/$',
-        'crmapp.communications.views.comm_cru', name='comm_new'
+        comm_cru, name='comm_new'
     ),
     url(r'^comm/(?P<uuid>[\w-]+)/', include(comm_urls)),
 ]
