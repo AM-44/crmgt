@@ -69,7 +69,7 @@ urlpatterns =[
     url(r'^contact/(?P<uuid>[\w-]+)/', include(contact_urls)),
     url(r'^contact/(?P<pk>[\w-]+)/delete/$',
         ContactDelete.as_view(), name='contact_delete'
-    )
+    ),
     # Communication related URLs
     url(r'^comm/(?P<uuid>[\w-]+)/', include(comm_urls)),
 ]
