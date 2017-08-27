@@ -29,7 +29,7 @@ from accounts.views import account_cru
 from contacts.views import contact_cru
 from contacts.views import ContactDelete
 from communications.urls import comm_urls
-from communications.viewws import comm_cru
+from communications.views import comm_cru
 
 urlpatterns =[
 
