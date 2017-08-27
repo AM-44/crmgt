@@ -28,6 +28,7 @@ from .settings import LOGIN_REDIRECT_URL
 from accounts.views import account_cru
 from contacts.views import contact_cru
 from contacts.views import ContactDelete
+from communications.urls import comm_urls
 
 urlpatterns =[
 
@@ -70,5 +71,5 @@ urlpatterns =[
         ContactDelete.as_view(), name='contact_delete'
     )
     # Communication related URLs
-
+    url(r'^comm/(?P<uuid>[\w-]+)/', include(comm_urls)),
 ]
