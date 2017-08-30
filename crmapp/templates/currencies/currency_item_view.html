@@ -13,7 +13,7 @@
     <div class="row gi-body">
         <div class="col-md-9">
             <h5 class="gi-sh">Description</h5>
-            <p>{{ currency.desc }}</p>
+            <p>{{ currency.desc|truncatechars:444 }}</p>
         </div>
         <div class="col-md-3">
             <h5 class="gi-sh">Address</h5>
@@ -21,6 +21,5 @@
             <p class="nm">{{ currency.address_two|truncatechars:15 }}</p>
             <p class="nm">{{ currency.exchange}}, {{ currency.investment }}</p>
             <p class="nm">{{ currency.phone}}</p>
-            <a href="javascript:window.location.reload(true)">Reload</a>
         </div>
     </div>
