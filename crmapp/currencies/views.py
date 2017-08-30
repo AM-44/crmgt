@@ -18,7 +18,7 @@ class CurrencyList(ListView):
             a = None
         if a:
             currency_list = Currency.objects.filter(
-                name__icontains=a,
+                currency_name__icontains=a,
                 owner=self.request.user
             )
         else:

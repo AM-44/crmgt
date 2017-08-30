@@ -2,30 +2,45 @@
 {% block title %}Currency List{% endblock title %}
 
 {% block content %}
-    <div id="content-container" class="container p-none">
+<section class="download bg-secondary text-center" id="download">
+      <div class="container">
+        <div class="section-heading text-center">
         <div id="al-container" class="side-p">
             <div id="al-control">
                 <h3 class="ad-mh">Currency List
                     {# Add Currency Link #}
                 </h3>
-                {# Currency Search Form #}
-                <form action="{% url 'currency_list' %}" method="get">
-                    <input id="al-search" type="text"
-                           name="currency" value="{{ request.GET.currency }}"
-                           class="form-control" />
-                    <input type="submit"
-                           value="Search" class="btn btn-success" />
-                </form>
-            </div>
             {# List of Currencies #}
-            <ul id="al-group" class="strip-list">
+            <div class="container">
+                        <ul class="list-inline">
+                        <li class="list-inline-item">
                 {% for currency in currencies %}
                     <li class="al-item">
                         <a href=""><h4 class="al-name">{{ currency.currency_name }}</h4></a>
                         <span class="al-created">created on {{ currency.created_on }}</span>
                     </li>
+                    </li>
+                    <br>
                 {% endfor %}
+            </li>
             </ul>
+            </div>
+            {# Currency Search Form #}
+                <div class="container">
+                        <ul class="list-inline">
+                        <li class="list-inline-item">
+                        <form action="{% url 'currency_list' %}" method="get">
+                            <input id="al-search" type="text"
+                                   name="currency" value="{{ request.GET.currency }}"
+                                   class="form-control" />
+                                   <br>
+                            <input type="submit"
+                                   value="Search" class="btn btn-success" />
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            </div>
             {# Pagination Section #}
             {% if is_paginated %}
             <div id="al-paginate">
@@ -47,4 +62,6 @@
         {% endif %}
         </div>
     </div>
+</div>
+</section>
 {% endblock content %}
