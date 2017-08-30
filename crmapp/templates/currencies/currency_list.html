@@ -9,6 +9,13 @@
                     {# Add Currency Link #}
                 </h3>
                 {# Currency Search Form #}
+                <form action="{% url 'currency_list' %}" method="get">
+                    <input id="al-search" type="text"
+                           name="currency" value="{{ request.GET.currency }}"
+                           class="form-control" />
+                    <input type="submit"
+                           value="Search" class="btn btn-success" />
+                </form>
             </div>
             {# List of Currencies #}
             <ul id="al-group" class="strip-list">
