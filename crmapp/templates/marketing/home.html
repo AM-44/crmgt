@@ -120,7 +120,11 @@
       <div class="cta-content">
         <div class="container">
           <h2>Stop the search.<br>Monitor your 'crypto-data'.</h2>
-          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Get me Started!</a>
+          {% if user.is_authenticated %}
+          <a href="#" class="btn btn-outline btn-xl js-scroll-trigger">Get me Started!</a>
+          {% else %}
+          <a href="/login/" class="btn btn-outline btn-xl js-scroll-trigger">Get me Started!</a>
+          {% endif %}
         </div>
       </div>
       <div class="overlay"></div>

@@ -281,6 +281,11 @@ footer {
   background: -webkit-linear-gradient(#fdcc52, #fdc539);
   background: linear-gradient(#fdcc52, #fdc539); }
 
+.bg-secondary {
+  background: #32254c;
+  background: -webkit-linear-gradient(#32254c, #4d4d4d);
+  background: linear-gradient(#32254c, #4d4d4d); }
+
 .text-primary {
   color: #fdcc52; }
 
