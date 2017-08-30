@@ -1,11 +1,11 @@
 
             <div class="gi-header">
                 <div class="col-md-9">
-                <h3 class="ad-mh">{{ account.name }}
+                <h3 class="ad-mh"><b>{{ account.name }}</b>
                     {# Account Edit Link #}
                     <span>
                         <a class="ad-control edit-account btn btn-link"
-                           href="{{ account.get_update_url }}">Edit</a>
+                           href="{{ account.get_update_url }}"><b>Edit</b></a>
                     </span>
                 </h3>
 
@@ -16,11 +16,11 @@
                     <p>{{ account.desc }}</p>
                 </div>
                 <div class="col-md-3">
-                    <h5 class="gi-sh">Address</h5>
-                    <p class="nm">{{ account.address_one }}</p>
-                    <p class="nm">{{ account.address_two }}</p>
-                    <p class="nm">{{ account.city}}, {{ account.state }}</p>
-                    <p class="nm">{{ account.phone}}</p>
+                    <h5 class="gi-sh"><b>Address</b></h5>
+                    <p class="nm"><b>{{ account.address_one }}</b></p>
+                    <p class="nm"><b>{{ account.address_two }}</b></p>
+                    <p class="nm"><b>{{ account.city}}, {{ account.state }}</b></p>
+                    <p class="nm"><b>{{ account.phone}}</b></p>
                 </div>
             </div>
         
