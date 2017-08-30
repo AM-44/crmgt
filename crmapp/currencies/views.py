@@ -1,11 +1,13 @@
 from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.core.paginator import Paginator
 
 from .models import Currency
 
 class CurrencyList(ListView):
     model = Currency
+    paginator = Paginator(Account, 12)
     template_name = 'currencies/currency_list.html'
     context_object_name = 'currencies'
 
