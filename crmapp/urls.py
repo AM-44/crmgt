@@ -31,6 +31,7 @@ from contacts.views import ContactDelete
 from communications.urls import comm_urls
 from communications.views import comm_cru
 from communications.views import CommDelete
+from currencies.views import CurrencyList
 
 urlpatterns =[
 
@@ -80,4 +81,8 @@ urlpatterns =[
     url(r'^comm/(?P<pk>[\w-]+)/delete/$',
         CommDelete.as_view(), name='comm_delete'
     ),
+    # Currency related URLs
+    url(r'^currency/list/$',
+    CurrencyList.as_view(), name='currency_list'
+),
 ]
