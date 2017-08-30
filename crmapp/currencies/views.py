@@ -1,3 +1,5 @@
+from django.http import HttpResponseForbidden
+from django.shortcuts import render
 from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -28,3 +30,16 @@ class CurrencyList(ListView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(CurrencyList, self).dispatch(*args, **kwargs)
+
+@login_required()
+def currency_detail(request, uuid):
+
+    currency = Currency.objects.get(uuid=uuid)
+    if currency.owner != request.user:
+            return HttpResponseForbidden()
+
+    variables = {
+        'currency': currency,
+    }
+
+    return render(request, 'currencies/currency_detail.html', variables)

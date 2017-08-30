@@ -32,6 +32,7 @@ from communications.urls import comm_urls
 from communications.views import comm_cru
 from communications.views import CommDelete
 from currencies.views import CurrencyList
+from currencies.urls import currency_urls
 
 urlpatterns =[
 
@@ -84,5 +85,6 @@ urlpatterns =[
     # Currency related URLs
     url(r'^currency/list/$',
     CurrencyList.as_view(), name='currency_list'
-),
+    ),
+    url(r'^currency/(?P<uuid>[\w-]+)/', include(currency_urls)),
 ]

@@ -16,7 +16,7 @@
                         <li class="list-inline-item">
                 {% for currency in currencies %}
                     <li class="al-item">
-                        <a href=""><h4 class="al-name">{{ currency.currency_name }}</h4></a>
+                        <a href="{{ currency.get_absolute_url }}"><h4 class="al-name">{{ currency.currency_name }}</h4></a>
                         <span class="al-created">created on {{ currency.created_on }}</span>
                     </li>
                     </li>
