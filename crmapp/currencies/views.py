@@ -78,6 +78,9 @@ def currency_cru(request, uuid=None):
         'currency': currency
     }
 
-    template = 'currencies/currency_cru.html'
+    if request.is_ajax():
+        template = 'currencies/currency_item_form.html'
+    else:
+        template = 'currencies/currency_cru.html'
 
     return render(request, template, variables)
