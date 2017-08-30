@@ -10,6 +10,7 @@ from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator
 
 from .models import Currency
+from django.shortcuts import get_object_or_404
 
 class CurrencyList(ListView):
     model = Currency
@@ -49,10 +50,17 @@ def currency_detail(request, uuid):
     return render(request, 'currencies/currency_detail.html', variables)
 
 @login_required()
-def currency_cru(request):
+def currency_cru(request, uuid=None):
+
+    if uuid:
+        currency = get_object_or_404(Currency, uuid=uuid)
+        if currency.owner != request.user:
+            return HttpResponseForbidden()
+    else:
+        currency = Currency(owner=request.user)
 
     if request.POST:
-        form = CurrencyForm(request.POST)
+        form = CurrencyForm(request.POST, instance=currency)
         if form.is_valid():
             currency = form.save(commit=False)
             currency.owner = request.user
@@ -63,10 +71,11 @@ def currency_cru(request):
             )
             return HttpResponseRedirect(redirect_url)
     else:
-        form = CurrencyForm()
+        form = CurrencyForm(instance=currency)
 
     variables = {
         'form': form,
+        'currency': currency
     }
 
     template = 'currencies/currency_cru.html'
