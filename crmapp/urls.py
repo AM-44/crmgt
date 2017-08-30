@@ -83,6 +83,9 @@ urlpatterns =[
         CommDelete.as_view(), name='comm_delete'
     ),
     # Currency related URLs
+    url(r'^currency/new/$',
+    currency_cru, name='currency_new'
+),
     url(r'^currency/list/$',
     CurrencyList.as_view(), name='currency_list'
     ),
