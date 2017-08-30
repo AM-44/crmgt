@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
 
 {% block content %}
 <section class="download bg-primary text-center" id="currencies">
@@ -18,6 +17,7 @@
 				 <td>
 				  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currency="{{ currency.currency_name }}" data-base="USD" data-secondary="BTC" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-stats="USD" data-statsticker="true"></div>
 				 </td>
+				 <a class="ad-control edit-currency btn btn-link" href="javascript:window.location.reload(true)">Reload Statistics</a>
 				</tr>
 		        {# List Communications #}
 		    </div>
