@@ -32,4 +32,4 @@ class Currency(models.Model):
 
     @models.permalink
     def get_delete_url(self):
-        return 'account_delete', [self.uuid]
+        return 'currency_delete', [self.uuid]
