@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 <section class="download bg-secondary text-center" id="currencies">
@@ -10,7 +11,14 @@
 		                {% include 'currencies/currency_item_view.html' %}
 		            </div>
 		        </div>
-		        {# List Contacts #}
+		        <br></br>
+		        {# List Currencies from Coinmarketcap #}
+		        <h3 class="ad-mh"><b>Coin Market Cap Statistics</b></h3>
+		        <tr>
+				 <td>
+				  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currency="{{ currency.currency_name }}" data-base="USD" data-secondary="BTC" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-stats="USD" data-statsticker="true"></div>
+				 </td>
+				</tr>
 		        {# List Communications #}
 		    </div>
 		    <br></br>
