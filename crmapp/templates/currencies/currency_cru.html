@@ -2,9 +2,15 @@
 {% block title %}Currency Operation{% endblock title %}
 
 {% block content %}
-    <div id="content-container" class="container p-none">
-        <div class="side-p">
-            {% include 'currencies/currency_item_form.html' %}
-        </div>
-    </div>
+<section class="features" id="features">
+      <div class="container">
+        <div class="section-heading text-center">
+		    <div id="content-container" class="container p-none">
+		        <div class="side-p">
+		            {% include 'currencies/currency_item_form.html' %}
+		        </div>
+		    </div>
+		</div>
+	</div>
+</section>
 {% endblock content %}

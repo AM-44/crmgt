@@ -58,7 +58,7 @@ def currency_cru(request):
             currency.owner = request.user
             currency.save()
             redirect_url = reverse(
-                'crmapp.currencies.views.currency_detail',
+                currency_detail,
                 args=(currency.uuid,)
             )
             return HttpResponseRedirect(redirect_url)

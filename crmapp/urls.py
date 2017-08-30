@@ -33,6 +33,7 @@ from communications.views import comm_cru
 from communications.views import CommDelete
 from currencies.views import CurrencyList
 from currencies.urls import currency_urls
+from currencies.views import currency_cru
 
 urlpatterns =[
 

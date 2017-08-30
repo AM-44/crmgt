@@ -1,29 +1,38 @@
-    <form id="gi-form"
-          action=""
-          method="post">
-        {% csrf_token %}
-        <div id="gi-h-w">
-            <h3 class="gi-mh">{{ form.currency_name }}</h3>
-            <span>{{ form.currency_name.errors }}</span>
+<h3 class="ad-mh">Add Crypto-Currency</h3>
+
+<section class="features" id="features">
+      <div class="container">
+        <div class="section-heading text-center">    
+            <form id="gi-form"
+                  action=""
+                  method="post">
+                {% csrf_token %}
+                <div id="gi-h-w">
+                    <h3 class="gi-mh">{{ form.currency_name }}</h3>
+                    <span>{{ form.currency_name.errors }}</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <p>{{ form.desc }}</p>
+                        <span>{{ form.desc.errors }}</span>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="nm">{{ form.address_one }}</p>
+                        <span>{{ form.address_one.errors }}</span>
+                        <p class="nm">{{ form.address_two }}</p>
+                        <span>{{ form.address_one.errors }}</span>
+                        <p class="nm">{{ form.exchange}}</p>
+                        <span>{{ form.exchange.errors }}</span>
+                        <p class="nm">{{ form.investment }}</p>
+                        <span>{{ form.investment.errors }}</span>
+                        <p class="nm">{{ form.phone}}</p>
+                        <span>{{ form.phone.errors }}</span>
+                    </div>
+                </div>
+                <br>
+                <input id="gi-form-submit" class="btn btn-primary" type="submit" value="SAVE">
+                <p>{{ form.non_field_errors }}</p>
+            </form>
         </div>
-        <div class="row">
-            <div class="col-md-9">
-                <p>{{ form.desc }}</p>
-                <span>{{ form.desc.errors }}</span>
-            </div>
-            <div class="col-md-3">
-                <p class="nm">{{ form.address_one }}</p>
-                <span>{{ form.address_one.errors }}</span>
-                <p class="nm">{{ form.address_two }}</p>
-                <span>{{ form.address_one.errors }}</span>
-                <p class="nm">{{ form.exchange}}</p>
-                <span>{{ form.exchange.errors }}</span>
-                <p class="nm">{{ form.investment }}</p>
-                <span>{{ form.investment.errors }}</span>
-                <p class="nm">{{ form.phone}}</p>
-                <span>{{ form.phone.errors }}</span>
-            </div>
-        </div>
-        <input id="gi-form-submit" class="btn btn-primary" type="submit" value="SAVE">
-        <p>{{ form.non_field_errors }}</p>
-    </form>
+    </div>
+</section>
