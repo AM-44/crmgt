@@ -1,3 +1,7 @@
+from django.http import HttpResponseRedirect 
+from django.core.urlresolvers import reverse
+
+from .forms import CurrencyForm
 from django.http import HttpResponseForbidden
 from django.shortcuts import render
 from django.views.generic import ListView
@@ -43,3 +47,28 @@ def currency_detail(request, uuid):
     }
 
     return render(request, 'currencies/currency_detail.html', variables)
+
+@login_required()
+def currency_cru(request):
+
+    if request.POST:
+        form = CurrencyForm(request.POST)
+        if form.is_valid():
+            currency = form.save(commit=False)
+            currency.owner = request.user
+            currency.save()
+            redirect_url = reverse(
+                'crmapp.currencies.views.currency_detail',
+                args=(currency.uuid,)
+            )
+            return HttpResponseRedirect(redirect_url)
+    else:
+        form = CurrencyForm()
+
+    variables = {
+        'form': form,
+    }
+
+    template = 'currencies/currency_cru.html'
+
+    return render(request, template, variables)
