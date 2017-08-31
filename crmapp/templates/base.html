@@ -72,10 +72,14 @@
                             <li><a class="nav-link js-scroll-trigger" href="{% url 'currency_list' %}" class="p-r-none">Currencies</a></li>
                             <li><a class="nav-link js-scroll-trigger" href="{% url 'account_list' %}" class="p-r-none">Accounts</a></li>
                             <li><a class="nav-link js-scroll-trigger" href="/logout/">Logout</a></li>
+                            <li><a class="nav-link js-scroll-trigger" href="">
+                            Welcome, {{ user.get_username }}</a></li>
                         {% else %}
                         	<li class="nav-item">
                             <li><a class="nav-link js-scroll-trigger" href="/login/">Login</a></li>
                             <li><a class="nav-link js-scroll-trigger" href="{% url 'sub_new' %}" class="p-r-none">Sign Up</a></li>
+                            <li><a class="nav-link js-scroll-trigger" href="">
+                            Welcome, new user. Please log in.</a></li>
                         {% endif %}
           </ul>
         </div>
