@@ -3,9 +3,9 @@
                 <div id="ad-container">
             <tr>
                 <td class="ci-td-p-l">{{ contact.full_name|truncatechars:8 }}</td>
-                <td>{{ contact.role }}</td>
-                <td>{{ contact.email|truncatechars:10 }}</td>
-                <td>{{ contact.phone|truncatechars:8 }}</td>
+                <td>{{ contact.role|truncatechars:4 }}</td>
+                <td>{{ contact.email|truncatechars:4 }}</td>
+                <td>{{ contact.phone|truncatechars:2 }}</td>
                 <td class="con-cntrl">
                     {# Contact Edit Link #}
                     <a class="pen edit-contact"
