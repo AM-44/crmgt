@@ -16,10 +16,10 @@
             <p>{{ currency.desc|truncatechars:444 }}</p>
         </div>
         <div class="col-md-3">
-            <h5 class="gi-sh">Address</h5>
+            <h5 class="gi-sh"><b>Address</b></h5>
             <p class="nm">{{ currency.address_one|truncatechars:15 }}</p>
             <p class="nm">{{ currency.address_two|truncatechars:15 }}</p>
             <p class="nm">{{ currency.exchange}}, {{ currency.investment }}</p>
-            <p class="nm">{{ currency.phone}}</p>
+            <p class="nm">{{ currency.phone|truncatechars:10}}</p>
         </div>
     </div>
