@@ -12,6 +12,19 @@
                         <h3 class="ad-mh"><b>Account List</b>
                         </h3>
                         <br>
+                        {# Account Search Form #}
+                    <span class="pull-left">
+                        <form action="{% url 'account_list' %}" method="get">
+                            <input id="al-search" type="text"
+                                   name="account" value="{{ request.GET.account }}"
+                                   class="form-control" />
+                                   <br>
+                            <input type="submit"
+                                   value="List Search" class="btn btn-success" />
+                        </form>
+                        </li>
+                        </ul>
+                    </div>
                         {# Add Account Link #}
                             <span class="pull-right">
                                 <a href="{% url 'crmapp.accounts.views.account_cru' %}"
@@ -34,21 +47,6 @@
                         </ul>
                     </div>
                     </ul>
-                    {# Account Search Form #}
-                    <div class="container">
-                        <ul class="list-inline">
-                        <li class="list-inline-item">
-                        <form action="{% url 'account_list' %}" method="get">
-                            <input id="al-search" type="text"
-                                   name="account" value="{{ request.GET.account }}"
-                                   class="form-control" />
-                                   <br>
-                            <input type="submit"
-                                   value="List Search" class="btn btn-success" />
-                        </form>
-                        </li>
-                        </ul>
-                    </div>
                     {# Pagination Section #}
                     {% if is_paginated %}
                     <div id="al-paginate">
