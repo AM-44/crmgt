@@ -20,7 +20,7 @@ from crmapp.communications.forms import CommunicationForm
 
 class AccountList(ListView):
     model = Account
-    paginator = Paginator(Account, 12) 
+    paginate_by = 6 
     template_name = 'accounts/account_list.html'
     context_object_name = 'accounts'
 

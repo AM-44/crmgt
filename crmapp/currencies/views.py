@@ -14,7 +14,7 @@ from django.shortcuts import get_object_or_404
 
 class CurrencyList(ListView):
     model = Currency
-    paginator = Paginator(Currency, 4)
+    paginate_by = 6
     template_name = 'currencies/currency_list.html'
     context_object_name = 'currencies'
 
@@ -84,20 +84,3 @@ def currency_cru(request, uuid=None):
         template = 'currencies/currency_cru.html'
 
     return render(request, template, variables)
-
-@login_required()
-def currency_list(request):
-    currency_list = Currency.Objects.all()
-    paginator = Paginator(currency_list, 4) #Show 4 currency listings per page
-
-    page = requests.GET.get('page')
-    try:
-        currency = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        currency = paginator.page(1)
-    except EmtpyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        currency = paginator.page(paginator.num_pages)
-
-    return render(request, 'currency_list.html', {'currency': currency})

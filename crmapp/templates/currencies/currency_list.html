@@ -5,6 +5,7 @@
 <header class="masthead">
 <br></br>
 <br></br>
+<br></br>
       <div class="container">
         <div class="section-heading text-center">
         <div id="al-container" class="side-p">
@@ -52,18 +53,18 @@
 
             {# Pagination Section #}
             {% if is_paginated %}
-            <div class="pagination">
+            <div id="al-paginate">
                 <ul class="strip-list al-pgnt-list">
-                    {% if currency_list.has_previous %}
+                    {% if page_obj.has_previous %}
                         <li class="pull-left">
-                            <a href="{% url 'currency_list' %}?page={{ currency.previous_page_number }}
-                            {% if request.GET.currency %}&currency={{ request.GET.currency }}{% endif %}">Prev</a>
+                            <a href="{% url 'currency_list' %}?page={{ page_obj.previous_page_number }}
+                            {% if request.GET.currency %}&currency={{ request.GET.currency }}{% endif %}"><b>Prev</b></a>
                         </li>
                     {% endif %}
-                    {% if currency_list.has_next %}
+                    {% if page_obj.has_next %}
                         <li class="pull-right">
-                            <a href="{% url 'currency_list' %}?page={{ currency.next_page_number }}
-                            {% if request.GET.currency %}&currency={{ request.GET.currency }}{% endif %}">Next</a>
+                            <a href="{% url 'currency_list' %}?page={{ page_obj.next_page_number }}
+                            {% if request.GET.currency %}&currency={{ request.GET.currency }}{% endif %}"><b>Next</b></a>
                         </li>
                     {% endif %}
                 </ul>
