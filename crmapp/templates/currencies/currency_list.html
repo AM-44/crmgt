@@ -11,12 +11,31 @@
             <div id="al-control">
                 <h3 class="ad-mh"><b>Currency List</b></h3>
                     <br>
+                    {# Currency Search Form #}
+                <div class="container">
+                <span class="pull-left">
+                        <ul class="list-inline">
+                        <li class="list-inline-item">
+                        <form action="{% url 'currency_list' %}" method="get">
+                            <input id="al-search" type="text"
+                                   name="currency" value="{{ request.GET.currency }}"
+                                   class="form-control" />
+                                   <br>
+                            <input type="submit"
+                                   value="Search" class="btn btn-success" />
+                        </form>
+                    </li>
+                </ul>
+                </span>
+                <br>
                     {# Add Currency Link #}
                     <span class="pull-right">
                         <a href="{% url 'currency_new' %}"
                            class="btn btn-link p-r-none">+ Add New Crypto-Currency</a>
                     </span>
+                    <br></br>
                     <br>
+                    <hr>
             {# List of Currencies #}
             <div class="container">
                         <ul class="list-inline">
@@ -32,20 +51,7 @@
             </li>
             </ul>
             </div>
-            {# Currency Search Form #}
-                <div class="container">
-                        <ul class="list-inline">
-                        <li class="list-inline-item">
-                        <form action="{% url 'currency_list' %}" method="get">
-                            <input id="al-search" type="text"
-                                   name="currency" value="{{ request.GET.currency }}"
-                                   class="form-control" />
-                                   <br>
-                            <input type="submit"
-                                   value="Search" class="btn btn-success" />
-                        </form>
-                    </li>
-                </ul>
+            {# Crypto Widget #}
                 <ul class="list-inline">
                         <li class="list-inline-item">
                 <script type="text/javascript">
@@ -66,7 +72,6 @@
                 </script>
                     </li>
                 </ul>
-            </div>
             </div>
             {# Pagination Section #}
             {% if is_paginated %}
