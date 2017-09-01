@@ -84,3 +84,18 @@ def currency_cru(request, uuid=None):
         template = 'currencies/currency_cru.html'
 
     return render(request, template, variables)
+
+@login_required
+def currency_list(request, uuid):
+    currency_list = Vurrency.Objects.all()
+    page = requests.GET.get('page', 1)
+
+    paginator = Paginator(currency_list, 4)
+    try:
+        currency = paginator.page(page)
+    except PageNotAnInteger:
+        currency = paginator.page(1)
+    except EmtpyPage:
+        currency = paginator.page(paginator.num_pages)
+
+    return render(request, 'currencies/currency_list.html', variables)
