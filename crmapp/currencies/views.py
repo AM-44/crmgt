@@ -85,17 +85,19 @@ def currency_cru(request, uuid=None):
 
     return render(request, template, variables)
 
-@login_required
-def currency_list(request, uuid):
-    currency_list = Vurrency.Objects.all()
-    page = requests.GET.get('page', 1)
+@login_required()
+def currency_list(request):
+    currency_list = Currency.Objects.all()
+    paginator = Paginator(currency_list, 4) #Show 4 currency listings per page
 
-    paginator = Paginator(currency_list, 4)
+    page = requests.GET.get('page')
     try:
         currency = paginator.page(page)
     except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
         currency = paginator.page(1)
     except EmtpyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
         currency = paginator.page(paginator.num_pages)
 
-    return render(request, 'currencies/currency_list.html', variables)
+    return render(request, 'currency_list.html', {'currency': currency})

@@ -42,28 +42,27 @@
                         <li class="list-inline-item">
                 {% for currency in currencies %}
                     <li class="al-item">
-                        <a href="{{ currency.get_absolute_url }}"><h4 class="al-name">{{ currency.currency_name }}</h4></a>
+                        <a href="{{ currency.get_absolute_url }}"><h4 class="al-name"><b>{{ currency.currency_name }}</b></h4></a>
                         <span class="al-created">created on {{ currency.created_on }}</span>
                     </li>
                     </li>
-                    <hr>
                 {% endfor %}
             </ul>
             </div>
 
             {# Pagination Section #}
             {% if is_paginated %}
-            <div id="al-paginate">
+            <div class="pagination">
                 <ul class="strip-list al-pgnt-list">
-                    {% if page_obj.has_previous %}
+                    {% if currency_list.has_previous %}
                         <li class="pull-left">
-                            <a href="{% url 'currency_list' %}?page={{ page_obj.previous_page_number }}
+                            <a href="{% url 'currency_list' %}?page={{ currency.previous_page_number }}
                             {% if request.GET.currency %}&currency={{ request.GET.currency }}{% endif %}">Prev</a>
                         </li>
                     {% endif %}
-                    {% if page_obj.has_next %}
+                    {% if currency_list.has_next %}
                         <li class="pull-right">
-                            <a href="{% url 'currency_list' %}?page={{ page_obj.next_page_number }}
+                            <a href="{% url 'currency_list' %}?page={{ currency.next_page_number }}
                             {% if request.GET.currency %}&currency={{ request.GET.currency }}{% endif %}">Next</a>
                         </li>
                     {% endif %}
