@@ -14,7 +14,7 @@ from django.shortcuts import get_object_or_404
 
 class CurrencyList(ListView):
     model = Currency
-    paginator = Paginator(Currency, 12)
+    paginator = Paginator(Currency, 4)
     template_name = 'currencies/currency_list.html'
     context_object_name = 'currencies'
 
